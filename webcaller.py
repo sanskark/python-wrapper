@@ -178,10 +178,56 @@ class ValorantAPI:
 
     def get_sprays(self):
         """Returns data and assets of all sprays"""
-        return self.__get_data(self.url.sprays_levels_url())
+        return self.__get_data(self.url.sprays_url())
 
     def get_spray_by_uuid(self):
         """Returns data and assets of the requested spray"""
+        return self.__get_data(self.url.spray_url())
+
+    def get_sprays_levels(self):
+        """Returns data and assets of all spray levels"""
+        return self.__get_data(self.url.sprays_levels_url())
+
+    def get_spray_level_by_uuid(self):
+        """Returns data and assets of the requested spray level"""
         return self.__get_data(self.url.spray_level_url())
 
-    
+    def get_themes(self):
+        """Returns data and assets of all Themes"""
+        return self.__get_data(self.url.themes_url())
+
+    def get_theme_by_uuid(self, uuid):
+        """Returns data and assets the requested theme"""
+        return self.__get_data(self.url.theme_url().format(uuid=uuid))
+
+    def get_weapons(self):
+        """Returns data and assets of all Weapons"""
+        return self.__get_data(self.url.weapons_url())
+
+    def get_weapon_by_uuid(self, uuid):
+        """Returns data and assets the requested weapon"""
+        return self.__get_data(self.url.weapon_url().format(uuid=uuid))
+
+    def get_skins(self):
+        """Returns data and assets of all Skins"""
+        return self.__get_data(self.url.skins_url())
+
+    def get_skin_by_uuid(self, uuid):
+        """Returns data and assets the requested skin"""
+        return self.__get_data(self.url.skin_url().format(uuid=uuid))
+
+    def get_skins_levels(self):
+        """Returns data and assets of all Skins levels"""
+        return self.__get_data(self.url.skins_levels_url())
+
+    def get_skin_level_by_uuid(self):
+        """Returns data and assets of the requested skin level"""
+        return self.__get_data(self.url.skin_level_url())
+
+    def get_skins_chromas(self):
+        """Returns data and assets of all weapon skin chromas"""
+        return self.__get_data(self.url.skins_chromas_url())
+
+    def get_skins_chromas_by_uuid(self):
+        """Returns data and assets of the requested weapon skin chromas"""
+        return self.__get_data(self.url.skin_chroma_url())

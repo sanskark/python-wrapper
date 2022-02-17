@@ -92,7 +92,7 @@ class EndPoints:
         self.spray = "sprays/{uuid}".format(uuid="{uuid}")
         self.sprays_levels = "sprays/levels"
         self.spray_level = "sprays/levels/{uuid}".format(uuid="{uuid}")
-        """
+
         # Themes
         self.themes = "themes"
         self.theme = "themes/{uuid}".format(uuid="{uuid}")
@@ -106,7 +106,7 @@ class EndPoints:
         self.skin_chroma = "weapons/skinchromas/{uuid}".format(uuid="{uuid}")
         self.skins_levels = "weapons/levels"
         self.skin_level = "weapons/levels/{uuid}".format(uuid="{uuid}")
-
+        """
         # Version
         self.version = "version"
         """
@@ -272,3 +272,39 @@ class EndPoints:
 
     def spray_level_url(self):
         return self.base_url + self.spray_level
+
+    """
+        Themes
+    """
+    def themes_url(self):
+        return self.base_url + self.themes
+
+    def theme_url(self):
+        return self.base_url + self.theme
+
+    """
+        Weapons
+    """
+    def weapons_url(self):
+        return self.base_url + self.weapons
+
+    def weapon_url(self):
+        return self.base_url + self.weapon
+
+    def skins_url(self):
+        return self.base_url + self.skins
+
+    def skin_url(self):
+        return self.base_url + self.skin
+
+    def skins_levels_url(self):
+        return self.base_url + self.skins_levels
+
+    def skin_level_url(self):
+        return self.base_url + self.skin_level
+
+    def skins_chromas_url(self):
+        return self.base_url + self.skins_chromas
+
+    def skin_chroma_url(self):
+        return self.base_url + self.skin_chroma
