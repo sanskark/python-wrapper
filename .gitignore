@@ -1,4 +1,4 @@
 Environment/
 .idea
-test.py
 __pycache__/
+src/valorant/__pycache__

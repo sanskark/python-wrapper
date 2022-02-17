@@ -1,4 +1,4 @@
-from endpoints import EndPoints
+from src.valorant.endpoints import EndPoints
 import requests
 
 
@@ -8,6 +8,10 @@ class ValorantAPI:
         self.format = "json"
 
     def __to_json_format(self, response):
+        if response.status_code != 200:
+            print("Bad Request...!")
+            exit()
+
         if self.format == "json":
             return response.json()
         return response.json()
@@ -19,11 +23,11 @@ class ValorantAPI:
         """Returns data and assets of all agents and their abilities"""
         return self.__get_data(self.url.agents_url())
 
-    def get_agent_by_uuid(self, uuid):
+    def get_agent_by_uuid(self, uuid: str):
         """Returns data and assets of the requested agent"""
         return self.__get_data(self.url.agent_url().format(uuid=str(uuid)))
 
-    def get_agent_by_name(self, name, is_playable=True):
+    def get_agent_by_name(self, name: str, is_playable=True):
         """Return the specific agent by name"""
         agents_data = list(self.__get_data(self.url.agents_url())['data'])
 
@@ -67,7 +71,7 @@ class ValorantAPI:
         """Returns data and assets of all bundles"""
         return self.__get_data(self.url.bundles_url())
 
-    def get_bundle_by_uuid(self, uuid):
+    def get_bundle_by_uuid(self, uuid: str):
         """Returns data and assets of the requested bundle"""
         return self.__get_data(self.url.bundle_url().format(uuid=uuid))
 
@@ -75,7 +79,7 @@ class ValorantAPI:
         """Returns data and assets of all ceremonies(ACE, CLOSER, CLUTCH, FLAWLESS, TEAM ACE, THRIFTY)"""
         return self.__get_data(self.url.ceremonies_url())
 
-    def get_ceremony_by_uuid(self, uuid):
+    def get_ceremony_by_uuid(self, uuid: str):
         """Returns data and assets of the requested ceremony"""
         return self.__get_data(self.url.ceremony_url().format(uuid=uuid))
 
@@ -83,7 +87,7 @@ class ValorantAPI:
         """Returns data and assets of all competitive tiers(IRON, BRONZE, SILVER and so on..)"""
         return self.__get_data(self.url.compitiers_url())
 
-    def get_compitiers_by_uuid(self, uuid):
+    def get_compitiers_by_uuid(self, uuid: str):
         """Returns data and assets the requested competitive tier table(IRON, BRONZE, SILVER and so on..)"""
         return self.__get_data(self.url.compitier_url().format(uuid=uuid))
 
@@ -91,7 +95,7 @@ class ValorantAPI:
         """Returns data and assets of all content tiers(Deluxe, Exclusive, Premium, Select, Ultra)"""
         return self.__get_data(self.url.content_tiers_url())
 
-    def get_content_tier_by_uuid(self, uuid):
+    def get_content_tier_by_uuid(self, uuid: str):
         """Returns data and assets the requested content tier(Deluxe, Exclusive, Premium, Select, Ultra)"""
         return self.__get_data(self.url.content_tier_url().format(uuid=uuid))
 
@@ -99,7 +103,7 @@ class ValorantAPI:
         """Returns data and assets of all contracts"""
         return self.__get_data(self.url.contracts_url())
 
-    def get_contract_by_uuid(self, uuid):
+    def get_contract_by_uuid(self, uuid: str):
         """Returns data and assets the requested contract"""
         return self.__get_data(self.url.contract_url().format(uuid=uuid))
 
@@ -107,7 +111,7 @@ class ValorantAPI:
         """Returns data and assets of all events"""
         return self.__get_data(self.url.events_url())
 
-    def get_event_by_uuid(self, uuid):
+    def get_event_by_uuid(self, uuid: str):
         """Returns data and assets the requested event"""
         return self.__get_data(self.url.event_url().format(uuid=uuid))
 
@@ -115,7 +119,7 @@ class ValorantAPI:
         """Returns data and assets of all gamemodes"""
         return self.__get_data(self.url.gamemodes_url())
 
-    def get_gamemode_by_uuid(self, uuid):
+    def get_gamemode_by_uuid(self, uuid: str):
         """Returns data and assets the requested gamemode"""
         return self.__get_data(self.url.gamemode_url().format(uuid=uuid))
 
@@ -123,7 +127,7 @@ class ValorantAPI:
         """Returns data and assets of all gamemodes equippables(Classic or Golden Gun)"""
         return self.__get_data(self.url.equips_url())
 
-    def get_equip_by_uuid(self, uuid):
+    def get_equip_by_uuid(self, uuid: str):
         """Returns data and assets the requested gamemode equippables(Classic or Golden Gun)"""
         return self.__get_data(self.url.equip_url().format(uuid=uuid))
 
@@ -131,7 +135,7 @@ class ValorantAPI:
         """Returns data and assets of all Gears(Heavy Shields or Light Shields)"""
         return self.__get_data(self.url.gears_url())
 
-    def get_gear_by_uuid(self, uuid):
+    def get_gear_by_uuid(self, uuid: str):
         """Returns data and assets the requested gear(Heavy Shields or Light Shields)"""
         return self.__get_data(self.url.gear_url().format(uuid=uuid))
 
@@ -139,7 +143,7 @@ class ValorantAPI:
         """Returns data and assets of all Maps"""
         return self.__get_data(self.url.maps_url())
 
-    def get_map_by_uuid(self, uuid):
+    def get_map_by_uuid(self, uuid: str):
         """Returns data and assets the requested map"""
         return self.__get_data(self.url.map_url().format(uuid=uuid))
 
@@ -147,7 +151,7 @@ class ValorantAPI:
         """Returns data and assets of all player cards"""
         return self.__get_data(self.url.player_cards_url())
 
-    def get_player_card_by_uuid(self, uuid):
+    def get_player_card_by_uuid(self, uuid: str):
         """Returns data and assets of the requested player card"""
         return self.__get_data(self.url.player_card_url().format(uuid=uuid))
 
@@ -155,7 +159,7 @@ class ValorantAPI:
         """Returns data and assets of all player titles"""
         return self.__get_data(self.url.player_titles_url())
 
-    def get_player_title_by_uuid(self, uuid):
+    def get_player_title_by_uuid(self, uuid: str):
         """Returns data and assets of the requested player title"""
         return self.__get_data(self.url.player_title_url().format(uuid=uuid))
 
@@ -163,7 +167,7 @@ class ValorantAPI:
         """Returns data of all seasons"""
         return self.__get_data(self.url.seasons_url())
 
-    def get_season_by_uuid(self, uuid):
+    def get_season_by_uuid(self, uuid: str):
         """Returns data of the requested season"""
         return self.__get_data(self.url.season_url().format(uuid=uuid))
 
@@ -179,23 +183,23 @@ class ValorantAPI:
         """Returns data and assets of all sprays"""
         return self.__get_data(self.url.sprays_url())
 
-    def get_spray_by_uuid(self):
+    def get_spray_by_uuid(self, uuid: str):
         """Returns data and assets of the requested spray"""
-        return self.__get_data(self.url.spray_url())
+        return self.__get_data(self.url.spray_url().format(uuid=uuid))
 
     def get_sprays_levels(self):
         """Returns data and assets of all spray levels"""
         return self.__get_data(self.url.sprays_levels_url())
 
-    def get_spray_level_by_uuid(self):
+    def get_spray_level_by_uuid(self, uuid: str):
         """Returns data and assets of the requested spray level"""
-        return self.__get_data(self.url.spray_level_url())
+        return self.__get_data(self.url.spray_level_url().format(uuid=uuid))
 
     def get_themes(self):
         """Returns data and assets of all Themes"""
         return self.__get_data(self.url.themes_url())
 
-    def get_theme_by_uuid(self, uuid):
+    def get_theme_by_uuid(self, uuid: str):
         """Returns data and assets the requested theme"""
         return self.__get_data(self.url.theme_url().format(uuid=uuid))
 
@@ -203,7 +207,7 @@ class ValorantAPI:
         """Returns data and assets of all Weapons"""
         return self.__get_data(self.url.weapons_url())
 
-    def get_weapon_by_uuid(self, uuid):
+    def get_weapon_by_uuid(self, uuid: str):
         """Returns data and assets the requested weapon"""
         return self.__get_data(self.url.weapon_url().format(uuid=uuid))
 
@@ -211,7 +215,7 @@ class ValorantAPI:
         """Returns data and assets of all Skins"""
         return self.__get_data(self.url.skins_url())
 
-    def get_skin_by_uuid(self, uuid):
+    def get_skin_by_uuid(self, uuid: str):
         """Returns data and assets the requested skin"""
         return self.__get_data(self.url.skin_url().format(uuid=uuid))
 
@@ -219,17 +223,17 @@ class ValorantAPI:
         """Returns data and assets of all Skins levels"""
         return self.__get_data(self.url.skins_levels_url())
 
-    def get_skin_level_by_uuid(self):
+    def get_skin_level_by_uuid(self, uuid: str):
         """Returns data and assets of the requested skin level"""
-        return self.__get_data(self.url.skin_level_url())
+        return self.__get_data(self.url.skin_level_url().format(uuid=uuid))
 
     def get_skins_chromas(self):
         """Returns data and assets of all weapon skin chromas"""
         return self.__get_data(self.url.skins_chromas_url())
 
-    def get_skins_chromas_by_uuid(self):
+    def get_skins_chromas_by_uuid(self, uuid):
         """Returns data and assets of the requested weapon skin chromas"""
-        return self.__get_data(self.url.skin_chroma_url())
+        return self.__get_data(self.url.skin_chroma_url().format(uuid=uuid))
 
     def get_current_version(self):
         """Returns data of the current manifest & version the API is running on"""
