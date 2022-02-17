@@ -1,6 +1,5 @@
 from endpoints import EndPoints
 import requests
-import json
 
 
 class ValorantAPI:
@@ -88,13 +87,13 @@ class ValorantAPI:
         """Returns data and assets the requested competitive tier table(IRON, BRONZE, SILVER and so on..)"""
         return self.__get_data(self.url.compitier_url().format(uuid=uuid))
 
-    def get_contenttiers(self):
+    def get_content_tiers(self):
         """Returns data and assets of all content tiers(Deluxe, Exclusive, Premium, Select, Ultra)"""
-        return self.__get_data(self.url.contenttiers_url())
+        return self.__get_data(self.url.content_tiers_url())
 
-    def get_contenttier_by_uuid(self, uuid):
+    def get_content_tier_by_uuid(self, uuid):
         """Returns data and assets the requested content tier(Deluxe, Exclusive, Premium, Select, Ultra)"""
-        return self.__get_data(self.url.contenttier_url().format(uuid=uuid))
+        return self.__get_data(self.url.content_tier_url().format(uuid=uuid))
 
     def get_contracts(self):
         """Returns data and assets of all contracts"""
@@ -231,3 +230,7 @@ class ValorantAPI:
     def get_skins_chromas_by_uuid(self):
         """Returns data and assets of the requested weapon skin chromas"""
         return self.__get_data(self.url.skin_chroma_url())
+
+    def get_current_version(self):
+        """Returns data of the current manifest & version the API is running on"""
+        return self.__get_data(self.url.version_url())
