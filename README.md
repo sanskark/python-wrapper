@@ -1,2 +1,2 @@
-# python-wrapper
-Python wrapper for https://valorant-api.com/
+## python-wrapper
+>Python implementation or wrapper for https://valorant-api.com/
