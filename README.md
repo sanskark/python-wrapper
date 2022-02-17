@@ -1,2 +1,3 @@
 ## python-wrapper
->Python implementation or wrapper for https://valorant-api.com/
+
+>API wrapper in python for https://valorant-api.com/
