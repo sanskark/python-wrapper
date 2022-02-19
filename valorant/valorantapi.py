@@ -1,4 +1,4 @@
-from src.valorant.endpoints import EndPoints
+from valorant.endpoints import EndPoints
 import requests
 
 

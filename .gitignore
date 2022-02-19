@@ -1,4 +1,4 @@
 Environment/
 .idea
 __pycache__/
-src/valorant/__pycache__
+valorant/__pycache__
