@@ -1,3 +1,3 @@
-## ValorantApiPy
+## valorant-api
 
-python wrapper for valorant-api  
+> python wrapper for valorant-api  
